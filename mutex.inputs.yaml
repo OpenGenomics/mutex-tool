@@ -1,0 +1,6 @@
+data_file:
+  class: File
+  path: /Users/strucka/Downloads/mutex/sample-input/DataMatrix.txt
+network_file:
+  class: File
+  path: /Users/strucka/Downloads/mutex/resources/PC2v8.sif

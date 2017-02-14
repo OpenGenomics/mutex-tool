@@ -1,0 +1,89 @@
+cwlVersion: v1.0
+class: CommandLineTool
+label: mutex
+requirements:
+  DockerRequirement:
+    dockerImageId: mutex:latest
+
+baseCommand: ["python", "/home/mutex.py"]
+
+inputs:
+  data_file:
+    type: File
+    doc: Name of the data file. Mandatory.
+    inputBinding:
+      prefix: --data-file
+
+  max_group_size:
+    type: ["null", int]
+    default: 5
+    doc: The maximum size of a result mutex group. Integer value. Default is 5.
+    inputBinding:
+      prefix: --max-group-size
+
+  first_level_random_iteration:
+    type: ["null", int]
+    default: 10000
+    doc: Number of randomization to estimate null distribution of member p-values in mutex groups. Integer. Default is 10000.
+    inputBinding:
+      prefix: --first-level-random-iteration
+
+  second_level_random_iteration:
+    type: ["null", int]
+    default: 100
+    doc: Number of runs to estimate the null distribution of final scores. Integer. Default is 100. If FDR control on results is not required and only the ranking of the result groups is sufficient, set this parameter to 0.
+    inputBinding:
+      prefix: --second-level-random-iteration
+
+  fdr_cutoff:
+    type: ["null", float]
+    doc: Users can select a specific FDR cutoff. When not provided, or when set to a negative value, the FDR cutoff that maximizes the expected value of true positives - false positives is used.
+    inputBinding:
+      prefix: --fdr-cutoff
+
+  search_on_signaling_network:
+    type: ["null", boolean]
+    doc: Whether to reduce the search space using the signaling network. true or false. Default is true.
+    inputBinding:
+      prefix: --search-on-signaling-network
+
+  genes_file:
+    type: ["null", File]
+    doc: This parameter can be used to limit the search to a subset of genes. The file should contain a gene symbol per line.
+    inputBinding:
+      prefix: --genes-file
+
+  network_file:
+    type: File
+    doc: To customize the signaling network, users can use this parameter. The tab-delimited network file should contain 3 columns (Gene Symbol 1, interaction-type, Gene Symbol 2).
+    inputBinding:
+      prefix: --network-file
+
+  random:
+    type: ["null", boolean]
+    default: False
+    doc: When the dataset is large, and FDR control is required, the execution time can be long. To accelerate the execution, second-level randomizations can be parallelized.
+    inputBinding:
+      prefix: --random
+
+outputs:
+  ranked_groups:
+    type: File
+    outputBinding:
+      glob: ranked-groups.txt
+
+  fdr_guide:
+    type: File
+    outputBinding:
+      glob: fdr-guide.txt
+
+  result_groups:
+    type: File
+    outputBinding:
+      glob: result-groups.cus
+
+  merged_network:
+    type: File
+    outputBinding:
+      glob: merged-network.sif
+
