@@ -54,19 +54,34 @@ if __name__ == "__main__":
                         type=int,
                         default=100,
                         help="Number of runs to estimate the null distribution of final scores. Integer. Default is 100. If FDR control on results is not required and only the ranking of the result groups is sufficient, set this parameter to 0.")
-    parser.add_argument("-F", "--fdr-cutoff",
+    parser.add_argument("-fc", "--fdr-cutoff",
                         type=float,
                         help="Users can select a specific FDR cutoff. When not provided, or when set to a negative value, the FDR cutoff that maximizes the expected value of true positives - false positives is used.")
+    parser.add_argument("-sc", "--score-cutoff",
+                        type=float,
+                        help="")
     parser.add_argument("-S", "--search-on-signaling-network",
                         type=bool,
                         help="Whether to reduce the search space using the signaling network. true or false. Default is true.")
     parser.add_argument("-g", "--genes-file",
                         type=str,
                         help="This parameter can be used to limit the search to a subset of genes. The file should contain a gene symbol per line.")
+    parser.add_argument("-G", "--gene-ranking-file",
+                        type=str,
+                        help="")
+    parser.add_argument("-st", "--sample-to-tissue-mapping-file",
+                        type=str,
+                        help="")
+    parser.add_argument("-gl", "--gene-limit",
+                        type=int,
+                        help="")
     parser.add_argument("-n", "--network-file",
                         type=str,
                         required=True,
                         help="To customize the signaling network, users can use this parameter. The tab-delimited network file should contain 3 columns (Gene Symbol 1, interaction-type, Gene Symbol 2).")
+    parser.add_argument("-ma", "--minimum-alteration-count-threshold",
+                        type=int,
+                        help="")
     parser.add_argument("--random",
                         action="store_true",
                         help="When the dataset is large, and FDR control is required, the execution time can be long. To accelerate the execution, second-level randomizations can be parallelized.")

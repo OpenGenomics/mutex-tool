@@ -2,8 +2,8 @@ cwlVersion: v1.0
 class: CommandLineTool
 label: mutex
 requirements:
-  DockerRequirement:
-    dockerImageId: mutex:latest
+  DockerRequirement:    
+    dockerPull: "opengenomics/mutex:v1.0"
 
 baseCommand: ["python", "/home/mutex.py"]
 
@@ -41,6 +41,11 @@ inputs:
     inputBinding:
       prefix: --fdr-cutoff
 
+  score_cutoff:
+    type: ["null", float]
+    inputBinding:
+      prefix: --score-cutoff
+
   search_on_signaling_network:
     type: ["null", boolean]
     doc: Whether to reduce the search space using the signaling network. true or false. Default is true.
@@ -53,11 +58,31 @@ inputs:
     inputBinding:
       prefix: --genes-file
 
+  gene_ranking_file:
+    type: ["null", File]
+    inputBinding:
+      prefix: --gene-ranking-file
+
+  sample_to_tissue_mapping_file:
+    type: ["null", File]
+    inputBinding:
+      prefix: --sample-to-tissue-mapping-file
+
+  gene_limit:
+    type: ["null", int]
+    inputBinding:
+      prefix: --gene-limit
+
   network_file:
     type: File
     doc: To customize the signaling network, users can use this parameter. The tab-delimited network file should contain 3 columns (Gene Symbol 1, interaction-type, Gene Symbol 2).
     inputBinding:
       prefix: --network-file
+
+  minimum_alteration_count_threshold:
+    type: ["null", int]
+    inputBinding:
+      prefix: --minimum-alteration-count-threshold
 
   random:
     type: ["null", boolean]
