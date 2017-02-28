@@ -27,4 +27,5 @@ COPY ./mutex.py /home/
 WORKDIR /home/
 VOLUME /home/
 
+ENTRYPOINT [""]
 CMD ["python", "mutex.py"]
