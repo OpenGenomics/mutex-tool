@@ -22,10 +22,10 @@ RUN git clone https://github.com/PathwayAndDataAnalysis/mutex.git && \
     mvn assembly:single && \
     mv target/mutex.jar /home/
 
-COPY ./mutex.py /home/
+COPY ./mutex.py /opt/bin/
+RUN chmod +x /opt/bin/mutex.py
+ENV PATH=$PATH:/opt/bin/
 
 WORKDIR /home/
-VOLUME /home/
-
 ENTRYPOINT [""]
-CMD ["python", "mutex.py"]
+CMD ["mutex.py"]
