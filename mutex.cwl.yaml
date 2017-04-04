@@ -1,9 +1,10 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: mutex
+    
 requirements:
   DockerRequirement:    
-    dockerPull: "opengenomics/mutex:v1.0"
+    dockerPull: "opengenomics/mutex:v1.0.0"
 
 baseCommand: ["python", "/home/mutex.py"]
 
