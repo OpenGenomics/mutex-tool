@@ -27,5 +27,5 @@ RUN chmod +x /opt/bin/mutex.py
 ENV PATH=$PATH:/opt/bin/
 
 WORKDIR /home/
-ENTRYPOINT [""]
-CMD ["mutex.py"]
+ENTRYPOINT []
+CMD []
