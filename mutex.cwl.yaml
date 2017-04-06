@@ -6,7 +6,7 @@ requirements:
   DockerRequirement:    
     dockerPull: "opengenomics/mutex:v1.0.0"
 
-baseCommand: ["python", "/home/mutex.py"]
+baseCommand: ["mutex.py"]
 
 inputs:
   data_file:
