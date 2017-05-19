@@ -6,6 +6,7 @@ import argparse
 import os
 import subprocess
 import sys
+import uuid
 
 
 def execute(cmd):
@@ -33,6 +34,11 @@ def execute(cmd):
         raise RuntimeError
     else:
         return process.returncode
+
+
+def createLink(src, work_dir):
+    dest = os.path.join(work_dir, os.path.basename(src))
+    os.symlink(src, dest)
 
 
 if __name__ == "__main__":
@@ -87,20 +93,21 @@ if __name__ == "__main__":
                         help="When the dataset is large, and FDR control is required, the execution time can be long. To accelerate the execution, second-level randomizations can be parallelized.")
 
     args = parser.parse_args()
-    work_dir = os.getcwd()
+    work_dir = os.path.join(os.getcwd(), str(uuid.uuid4()))
+    os.mkdir(work_dir)
 
-    execute("ln -s {0} {1}/".format(args.data_file, work_dir))
+    createLink(args.data_file, work_dir)
     args.data_file = os.path.basename(args.data_file)
 
-    execute("ln -s {0} {1}/".format(args.network_file, work_dir))
+    createLink(args.network_file, work_dir)
     args.network_file = os.path.basename(args.network_file)
 
     if args.genes_file is not None:
-        execute("ln -s {0} {1}/".format(args.genes_file, work_dir))
+        createLink(args.genes_file, work_dir)
         args.genes_file = os.path.basename(args.genes_file)
 
     if args.gene_ranking_file is not None:
-        execute("ln -s {0} {1}/".format(args.gene_ranking_file, work_dir))
+        createLink(args.gene_ranking_file, work_dir)
         args.gene_ranking_file = os.path.basename(args.gene_ranking_file)
 
     with open("{0}/parameters.txt".format(work_dir), "wb") as fh:
