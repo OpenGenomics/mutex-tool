@@ -1,6 +1,6 @@
-FROM maven:3.3.9-jdk-8
+FROM maven:3.6.3-jdk-11
 
-MAINTAINER Adam Struck <strucka@ohsu.edu>
+MAINTAINER Kami Chiotti <chiotti@ohsu.edu>
 
 USER root
 ENV PATH /opt/bin:$PATH
