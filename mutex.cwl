@@ -85,6 +85,11 @@ inputs:
     type: int?
     inputBinding:
       prefix: --minimum-alteration-count-threshold
+  random:
+    type: boolean
+    default: true
+    inputBinding:
+      prefix: --random
 
 outputs:
   ranked_groups:
