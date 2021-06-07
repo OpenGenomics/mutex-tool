@@ -118,4 +118,4 @@ if __name__ == "__main__":
     if args.random:
         execute("java -jar /opt/mutex.jar {0} random".format(work_dir))
     else:
-        execute("java -jar /opt/mutex.jar {0}".format(work_dir))
+        execute("java -jar ./mutex/target/mutex.jar {0}".format(work_dir))
