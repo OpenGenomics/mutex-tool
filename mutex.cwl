@@ -87,7 +87,7 @@ inputs:
       prefix: --minimum-alteration-count-threshold
   random:
     type: boolean
-    default: true
+    default: false
     inputBinding:
       prefix: --random
 
