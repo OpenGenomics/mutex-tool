@@ -1,6 +1,0 @@
-data_file:
-  class: File
-  path: /Users/strucka/Projects/gaia_mutex_integration/tests/resources/smallmatrix.txt
-network_file:
-  class: File
-  path: /Users/strucka/Projects/gaia_mutex_integration/tests/resources/PC2v8.sif
