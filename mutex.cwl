@@ -4,7 +4,7 @@ label: mutex
     
 requirements:
   DockerRequirement:    
-    dockerPull: "opengenomics/mutex:v2.0.0"
+    dockerPull: "opengenomics/mutex:v2.0.1"
 
 baseCommand: ["mutex.py"]
 
@@ -87,7 +87,7 @@ inputs:
       prefix: --minimum-alteration-count-threshold
   random:
     type: boolean
-    default: false
+    default: true
     inputBinding:
       prefix: --random
 
@@ -95,20 +95,20 @@ outputs:
   ranked_groups:
     type: File
     outputBinding:
-      glob: ranked-groups.txt
+      glob: ./*/ranked-groups.txt
 
   fdr_guide:
     type: File
     outputBinding:
-      glob: fdr-guide.txt
+      glob: ./*/fdr-guide.txt
 
   result_groups:
     type: File
     outputBinding:
-      glob: result-groups.cus
+      glob: ./*/result-groups.cus
 
   merged_network:
     type: File
     outputBinding:
-      glob: merged-network.sif
+      glob: ./*/merged-network.sif
 
