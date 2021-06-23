@@ -20,7 +20,7 @@ RUN git clone https://github.com/PathwayAndDataAnalysis/mutex.git && \
     cd mutex && \
     mvn clean compile && \
     mvn assembly:single && \
-    mv target/mutex.jar /opt/
+    cp target/mutex.jar /opt/
 
 COPY ./mutex.py /opt/bin/
 RUN chmod +x /opt/bin/mutex.py
