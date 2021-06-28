@@ -4,7 +4,7 @@ label: mutex
     
 requirements:
   DockerRequirement:    
-    dockerPull: "opengenomics/mutex:v2.0.1"
+    dockerPull: "opengenomics/mutex:v2.0.2"
 
 baseCommand: ["mutex.py"]
 
@@ -87,7 +87,7 @@ inputs:
       prefix: --minimum-alteration-count-threshold
   random:
     type: boolean
-    default: true
+    default: false
     inputBinding:
       prefix: --random
 
