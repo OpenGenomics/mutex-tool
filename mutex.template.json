@@ -1,0 +1,10 @@
+{
+  "data_file" : {
+    "class" : "File",
+    "path" : "</full/path/to/data_matrix.txt"
+  },
+  "network_file" : {
+    "class" : "File",
+    "path" : "</full/path/to/network_file.txt"
+  }
+}
