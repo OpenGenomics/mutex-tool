@@ -7,7 +7,7 @@ CWL wrapper around [Mutex](https://github.com/pathwayanddataanalysis/mutex).
 
 Prerequisites
 --
-Make sure you have [GitHub](https://git -scm.com/downloads) [Docker](https://docs.docker.com/engine/install), and [cwltool](https://github.com/common-workflow-language/cwltool.git) installed in your system.
+Make sure you have [GitHub](https://git-scm.com/downloads) [Docker](https://docs.docker.com/engine/install), and [cwltool](https://github.com/common-workflow-language/cwltool.git) installed in your system.
 
 Download Sources
 --
