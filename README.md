@@ -115,7 +115,7 @@ Run Mutex with the following command.
 
 Description of output files and their visualization
 --
-After a run, the result files are generated into the working directory.
+After a run, the result files are output to the working directory.
 
 `ranked-groups.txt`:    Provides a ranked list of result groups, where the first column contains the score of the group. Use a text or spreadsheet editor to
                         visualize this file.
