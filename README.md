@@ -111,7 +111,7 @@ The other possible parameters (below) are optional.
 Run Mutex with the following command.
 --
 
-`cwltool mutex.cwl mutex.jar`
+`cwltool mutex.cwl mutex.json`
 
 Description of output files and their visualization
 --
