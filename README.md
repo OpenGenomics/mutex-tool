@@ -83,7 +83,7 @@ Users should prepare a file named `parameters.txt` and place it in a directory t
 
 `data-file` = `dataset.txt`
 
-`network-file`                    To customize the signaling network, users should have a 3-column, tab-delimited text file as described above. The valid values
+`network-file`:                    To customize the signaling network, users should have a 3-column, tab-delimited text file as described above. The valid values
                                   for interaction-type are `controls-state-change-of` and `controls-expression-of`. The first type is meant to be used for post-
                                   translational modification relations between proteins, and the second relation is for transcriptional regulations.
 
