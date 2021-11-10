@@ -13,7 +13,7 @@ Download Sources
 --
 To pull the source code from repository:
 ```
-git clone https://github.com/OpenGenomics/mutex
+git clone https://github.com/OpenGenomics/mutex-tool
 ```
 Prepare JSON File 
 --
