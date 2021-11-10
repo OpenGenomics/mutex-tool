@@ -20,7 +20,7 @@ Prepare JSON File
 Go into the project directory and use a text editor to generate the JSON file.
 
 ```
-cd mutex
+cd mutex-tool
 cp mutex.template.json mutex.json
 vi mutex.json
 ```
